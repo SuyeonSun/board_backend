@@ -2,6 +2,8 @@
 
 #???? ?? ??? MySQL ???? ??
 #spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBDialect
+server:
+  port: 8081
 
 spring:
   datasource:
