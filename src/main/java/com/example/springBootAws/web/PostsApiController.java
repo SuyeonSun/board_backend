@@ -13,26 +13,27 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
+@RequestMapping("/api/posts")
 public class PostsApiController {
     private final PostsService postsService;
 
-    @PostMapping("/api/v1/posts")
+    @PostMapping("/new")
     public Long save(@RequestBody PostsSaveRequestDto requestDto) {
         return postsService.save(requestDto);
     }
 
-    @PutMapping("/api/v1/posts/{id}")
+    @GetMapping("/all")
+    public List<PostsListResponseDto> index() {
+        return postsService.findAllDesc();
+    }
+
+    @PutMapping("/{id}")
     public Long update(@PathVariable Long id, @RequestBody PostsUpdateRequestDto requestDto) {
         return postsService.update(id, requestDto);
     }
 
-    @GetMapping("/api/v1/posts/{id}")
+    @GetMapping("/{id}")
     public PostsResponseDto findById (@PathVariable Long id) {
         return postsService.findById(id);
-    }
-
-    @GetMapping("/")
-    public List<PostsListResponseDto> index() {
-        return postsService.findAllDesc();
     }
 }
