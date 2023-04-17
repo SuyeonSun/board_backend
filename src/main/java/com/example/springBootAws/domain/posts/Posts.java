@@ -1,5 +1,6 @@
 package com.example.springBootAws.domain.posts;
 
+import com.example.springBootAws.domain.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
@@ -9,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor // 기본 생성자 자동 추가
 @Entity
 // 생성자란? 인스턴스를 만드는 과정에서 호출되는 함수수@Entity
-public class Posts {
+public class Posts extends BaseTimeEntity {
     @Id // pk 필드
     @GeneratedValue(strategy = GenerationType.IDENTITY) // GenerationType.IDENTITY 타입을 추가해야만 auto increment 가능
     private Long id;
