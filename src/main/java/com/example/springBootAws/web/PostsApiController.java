@@ -6,7 +6,6 @@ import com.example.springBootAws.web.dto.PostsResponseDto;
 import com.example.springBootAws.web.dto.PostsSaveRequestDto;
 import com.example.springBootAws.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,7 +21,7 @@ public class PostsApiController {
         return postsService.save(requestDto);
     }
 
-    @GetMapping("/all")
+    @GetMapping("/list")
     public List<PostsListResponseDto> index() {
         return postsService.findAllDesc();
     }
